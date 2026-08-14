@@ -1,0 +1,129 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Haram Journey — Regal Emerald Editorial */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-emerald-deep: var(--emerald-deep);
+  --color-emerald-darker: var(--emerald-darker);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-sand: var(--sand);
+  --color-sand-warm: var(--sand-warm);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-card: var(--card);
+  --color-card-foreground: var(--foreground);
+  --color-popover: var(--card);
+  --color-popover-foreground: var(--foreground);
+  --color-primary: var(--emerald-deep);
+  --color-primary-foreground: var(--sand);
+  --color-secondary: var(--sand-warm);
+  --color-secondary-foreground: var(--emerald-deep);
+  --color-muted: var(--sand-warm);
+  --color-muted-foreground: var(--ink-soft);
+  --color-accent: var(--gold);
+  --color-accent-foreground: var(--emerald-deep);
+  --color-destructive: oklch(0.55 0.19 27);
+  --color-destructive-foreground: oklch(0.98 0 0);
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--gold);
+
+  --font-display: "Cormorant Garamond", "Playfair Display", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 10px;
+
+  --shadow-elegant: 0 30px 60px -30px color-mix(in oklab, var(--emerald-deep) 35%, transparent);
+  --shadow-card: 0 10px 30px -15px color-mix(in oklab, var(--emerald-deep) 25%, transparent);
+}
+
+:root {
+  --emerald-deep: oklch(0.32 0.07 165);
+  --emerald-darker: oklch(0.22 0.05 165);
+  --gold: oklch(0.74 0.11 80);
+  --gold-soft: oklch(0.84 0.07 85);
+  --sand: oklch(0.97 0.012 80);
+  --sand-warm: oklch(0.94 0.02 80);
+  --ink: oklch(0.22 0.03 165);
+  --ink-soft: oklch(0.45 0.03 165);
+
+  --background: var(--sand);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --border: oklch(0.32 0.07 165 / 0.12);
+  --radius: 4px;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--gold) 40%, transparent);
+    color: var(--emerald-deep);
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+  font-feature-settings: "liga", "dlig";
+}
+
+@utility text-shimmer {
+  background: linear-gradient(
+    100deg,
+    var(--gold) 0%,
+    var(--gold-soft) 45%,
+    #fff8e0 50%,
+    var(--gold-soft) 55%,
+    var(--gold) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+@utility animate-slow-zoom {
+  animation: slow-zoom 18s ease-out forwards;
+}
