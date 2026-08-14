@@ -40,7 +40,17 @@ function createSupabaseAdminClient() {
     ];
     const message = `Missing Supabase environment variable(s): ${missing.join(', ')}. Connect Supabase in Lovable Cloud.`;
     console.error(`[Supabase] ${message}`);
-    throw new Error(message);
+    // Do not throw here to avoid crashing SSR on Vercel when envs are not set.
+    // Return a stub client that will throw a clear error when used.
+    const stub = new Proxy({}, {
+      get(_target, prop) {
+        return (..._args: any[]) => {
+          throw new Error(`[Supabase] ${message} - attempted to call "${String(prop)}"`);
+        };
+      },
+    });
+
+    return stub as unknown as ReturnType<typeof createSupabaseAdminClient>;
   }
 
   return createClient<Database>(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, {
