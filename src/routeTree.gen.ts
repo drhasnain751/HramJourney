@@ -9,32 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
-import { Route as AdminGateRouteRouteImport } from './routes/admin/_gate/route'
-import { Route as AdminForgotPasswordRouteImport } from './routes/admin/forgot-password'
-import { Route as AdminLoginRouteImport } from './routes/admin/login'
-import { Route as AdminResetPasswordRouteImport } from './routes/admin/reset-password'
 import { Route as PackagesIdRouteImport } from './routes/packages_/$id'
-import { Route as AdminGateCustomRequestsRouteImport } from './routes/admin/_gate/custom-requests'
-import { Route as AdminGateDashboardRouteImport } from './routes/admin/_gate/dashboard'
-import { Route as AdminGateHotelsRouteImport } from './routes/admin/_gate/hotels'
-import { Route as AdminGateInquiriesRouteImport } from './routes/admin/_gate/inquiries'
-import { Route as AdminGateMediaRouteImport } from './routes/admin/_gate/media'
-import { Route as AdminGateServicesRouteImport } from './routes/admin/_gate/services'
+import { Route as AdminResetPasswordRouteImport } from './routes/admin/reset-password'
+import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as AdminForgotPasswordRouteImport } from './routes/admin/forgot-password'
+import { Route as AdminGateRouteRouteImport } from './routes/admin/_gate/route'
 import { Route as AdminGateWebsiteContentRouteImport } from './routes/admin/_gate/website-content'
+import { Route as AdminGateServicesRouteImport } from './routes/admin/_gate/services'
+import { Route as AdminGateMediaRouteImport } from './routes/admin/_gate/media'
+import { Route as AdminGateInquiriesRouteImport } from './routes/admin/_gate/inquiries'
+import { Route as AdminGateHotelsRouteImport } from './routes/admin/_gate/hotels'
+import { Route as AdminGateDashboardRouteImport } from './routes/admin/_gate/dashboard'
+import { Route as AdminGateCustomRequestsRouteImport } from './routes/admin/_gate/custom-requests'
 import { Route as AdminGatePackagesIndexRouteImport } from './routes/admin/_gate/packages.index'
 import { Route as AdminGatePackagesIdRouteImport } from './routes/admin/_gate/packages.$id'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
@@ -42,19 +42,9 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/admin/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminGateRouteRoute = AdminGateRouteRouteImport.update({
-  id: '/admin/_gate',
-  path: '/admin',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AdminForgotPasswordRoute = AdminForgotPasswordRouteImport.update({
-  id: '/admin/forgot-password',
-  path: '/admin/forgot-password',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AdminLoginRoute = AdminLoginRouteImport.update({
-  id: '/admin/login',
-  path: '/admin/login',
+const PackagesIdRoute = PackagesIdRouteImport.update({
+  id: '/packages_/$id',
+  path: '/packages/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminResetPasswordRoute = AdminResetPasswordRouteImport.update({
@@ -62,34 +52,24 @@ const AdminResetPasswordRoute = AdminResetPasswordRouteImport.update({
   path: '/admin/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PackagesIdRoute = PackagesIdRouteImport.update({
-  id: '/packages_/$id',
-  path: '/packages/$id',
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminGateCustomRequestsRoute = AdminGateCustomRequestsRouteImport.update({
-  id: '/custom-requests',
-  path: '/custom-requests',
-  getParentRoute: () => AdminGateRouteRoute,
+const AdminForgotPasswordRoute = AdminForgotPasswordRouteImport.update({
+  id: '/admin/forgot-password',
+  path: '/admin/forgot-password',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AdminGateDashboardRoute = AdminGateDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => AdminGateRouteRoute,
+const AdminGateRouteRoute = AdminGateRouteRouteImport.update({
+  id: '/admin/_gate',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AdminGateHotelsRoute = AdminGateHotelsRouteImport.update({
-  id: '/hotels',
-  path: '/hotels',
-  getParentRoute: () => AdminGateRouteRoute,
-} as any)
-const AdminGateInquiriesRoute = AdminGateInquiriesRouteImport.update({
-  id: '/inquiries',
-  path: '/inquiries',
-  getParentRoute: () => AdminGateRouteRoute,
-} as any)
-const AdminGateMediaRoute = AdminGateMediaRouteImport.update({
-  id: '/media',
-  path: '/media',
+const AdminGateWebsiteContentRoute = AdminGateWebsiteContentRouteImport.update({
+  id: '/website-content',
+  path: '/website-content',
   getParentRoute: () => AdminGateRouteRoute,
 } as any)
 const AdminGateServicesRoute = AdminGateServicesRouteImport.update({
@@ -97,9 +77,29 @@ const AdminGateServicesRoute = AdminGateServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => AdminGateRouteRoute,
 } as any)
-const AdminGateWebsiteContentRoute = AdminGateWebsiteContentRouteImport.update({
-  id: '/website-content',
-  path: '/website-content',
+const AdminGateMediaRoute = AdminGateMediaRouteImport.update({
+  id: '/media',
+  path: '/media',
+  getParentRoute: () => AdminGateRouteRoute,
+} as any)
+const AdminGateInquiriesRoute = AdminGateInquiriesRouteImport.update({
+  id: '/inquiries',
+  path: '/inquiries',
+  getParentRoute: () => AdminGateRouteRoute,
+} as any)
+const AdminGateHotelsRoute = AdminGateHotelsRouteImport.update({
+  id: '/hotels',
+  path: '/hotels',
+  getParentRoute: () => AdminGateRouteRoute,
+} as any)
+const AdminGateDashboardRoute = AdminGateDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AdminGateRouteRoute,
+} as any)
+const AdminGateCustomRequestsRoute = AdminGateCustomRequestsRouteImport.update({
+  id: '/custom-requests',
+  path: '/custom-requests',
   getParentRoute: () => AdminGateRouteRoute,
 } as any)
 const AdminGatePackagesIndexRoute = AdminGatePackagesIndexRouteImport.update({
@@ -242,18 +242,18 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/': {
@@ -263,25 +263,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/_gate': {
-      id: '/admin/_gate'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminGateRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin/forgot-password': {
-      id: '/admin/forgot-password'
-      path: '/admin/forgot-password'
-      fullPath: '/admin/forgot-password'
-      preLoaderRoute: typeof AdminForgotPasswordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin/login': {
-      id: '/admin/login'
-      path: '/admin/login'
-      fullPath: '/admin/login'
-      preLoaderRoute: typeof AdminLoginRouteImport
+    '/packages_/$id': {
+      id: '/packages_/$id'
+      path: '/packages/$id'
+      fullPath: '/packages/$id'
+      preLoaderRoute: typeof PackagesIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/reset-password': {
@@ -291,46 +277,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/packages_/$id': {
-      id: '/packages_/$id'
-      path: '/packages/$id'
-      fullPath: '/packages/$id'
-      preLoaderRoute: typeof PackagesIdRouteImport
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/_gate/custom-requests': {
-      id: '/admin/_gate/custom-requests'
-      path: '/custom-requests'
-      fullPath: '/admin/custom-requests'
-      preLoaderRoute: typeof AdminGateCustomRequestsRouteImport
-      parentRoute: typeof AdminGateRouteRoute
+    '/admin/forgot-password': {
+      id: '/admin/forgot-password'
+      path: '/admin/forgot-password'
+      fullPath: '/admin/forgot-password'
+      preLoaderRoute: typeof AdminForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/admin/_gate/dashboard': {
-      id: '/admin/_gate/dashboard'
-      path: '/dashboard'
-      fullPath: '/admin/dashboard'
-      preLoaderRoute: typeof AdminGateDashboardRouteImport
-      parentRoute: typeof AdminGateRouteRoute
+    '/admin/_gate': {
+      id: '/admin/_gate'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminGateRouteRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/admin/_gate/hotels': {
-      id: '/admin/_gate/hotels'
-      path: '/hotels'
-      fullPath: '/admin/hotels'
-      preLoaderRoute: typeof AdminGateHotelsRouteImport
-      parentRoute: typeof AdminGateRouteRoute
-    }
-    '/admin/_gate/inquiries': {
-      id: '/admin/_gate/inquiries'
-      path: '/inquiries'
-      fullPath: '/admin/inquiries'
-      preLoaderRoute: typeof AdminGateInquiriesRouteImport
-      parentRoute: typeof AdminGateRouteRoute
-    }
-    '/admin/_gate/media': {
-      id: '/admin/_gate/media'
-      path: '/media'
-      fullPath: '/admin/media'
-      preLoaderRoute: typeof AdminGateMediaRouteImport
+    '/admin/_gate/website-content': {
+      id: '/admin/_gate/website-content'
+      path: '/website-content'
+      fullPath: '/admin/website-content'
+      preLoaderRoute: typeof AdminGateWebsiteContentRouteImport
       parentRoute: typeof AdminGateRouteRoute
     }
     '/admin/_gate/services': {
@@ -340,11 +312,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminGateServicesRouteImport
       parentRoute: typeof AdminGateRouteRoute
     }
-    '/admin/_gate/website-content': {
-      id: '/admin/_gate/website-content'
-      path: '/website-content'
-      fullPath: '/admin/website-content'
-      preLoaderRoute: typeof AdminGateWebsiteContentRouteImport
+    '/admin/_gate/media': {
+      id: '/admin/_gate/media'
+      path: '/media'
+      fullPath: '/admin/media'
+      preLoaderRoute: typeof AdminGateMediaRouteImport
+      parentRoute: typeof AdminGateRouteRoute
+    }
+    '/admin/_gate/inquiries': {
+      id: '/admin/_gate/inquiries'
+      path: '/inquiries'
+      fullPath: '/admin/inquiries'
+      preLoaderRoute: typeof AdminGateInquiriesRouteImport
+      parentRoute: typeof AdminGateRouteRoute
+    }
+    '/admin/_gate/hotels': {
+      id: '/admin/_gate/hotels'
+      path: '/hotels'
+      fullPath: '/admin/hotels'
+      preLoaderRoute: typeof AdminGateHotelsRouteImport
+      parentRoute: typeof AdminGateRouteRoute
+    }
+    '/admin/_gate/dashboard': {
+      id: '/admin/_gate/dashboard'
+      path: '/dashboard'
+      fullPath: '/admin/dashboard'
+      preLoaderRoute: typeof AdminGateDashboardRouteImport
+      parentRoute: typeof AdminGateRouteRoute
+    }
+    '/admin/_gate/custom-requests': {
+      id: '/admin/_gate/custom-requests'
+      path: '/custom-requests'
+      fullPath: '/admin/custom-requests'
+      preLoaderRoute: typeof AdminGateCustomRequestsRouteImport
       parentRoute: typeof AdminGateRouteRoute
     }
     '/admin/_gate/packages/': {
